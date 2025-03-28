@@ -1,0 +1,61 @@
+.medal-button-variables {
+  --medal-button-outline-width: 1px;
+  --medal-button-radius: 50%;
+  --gold-button-color: gold;
+  --silver-button-color: silver;
+  --bronze-button-color: brown;
+  --medal-button-size: 25px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.medal-button {
+  width: var(--medal-button-size);
+  height: var(--medal-button-size);
+  border: none;
+  border-radius: var(--medal-button-radius);
+  cursor: pointer;
+}
+
+.gold-button {
+  background-color: var(--gold-button-color);
+  outline: var(--medal-button-outline-width) solid var(--gold-button-color);
+}
+
+.silver-button {
+  background-color: var(--silver-button-color);
+  outline: var(--medal-button-outline-width) solid var(--silver-button-color);
+}
+
+.bronze-button {
+  background-color: var(--bronze-button-color);
+  outline: var(--medal-button-outline-width) solid var(--bronze-button-color);
+}
+
+.total-button {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.flag {
+  background-image: url("../../public/flags.png");
+  background-size: cover;
+  display: inline-block;
+}
