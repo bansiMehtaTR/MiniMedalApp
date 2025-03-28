@@ -70,11 +70,11 @@ const MedalTable = () => {
     }
 
     if (loading) {
-        return <div>Loading...</div>
+        return <div role="status" aria-live="polite">Loading...</div>
     }
 
     if (error) {
-        return <div>{error}</div>
+        return <div role="alert" aria-live="polite">{error}</div>
     }
 
     const handleSort = (sortType: SortType) => {
@@ -84,19 +84,35 @@ const MedalTable = () => {
         <table className={`${styles.table} ${styles['medal-button-variables']}`}>
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
-                    <th>
-                        <button onClick={() => handleSort(SortType.GOLD)} className={`${styles['medal-button']} ${styles['gold-button']}`}></button>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">
+                        <button 
+                            onClick={() => handleSort(SortType.GOLD)} 
+                            className={`${styles['medal-button']} ${styles['gold-button']}`}
+                            aria-label="Sort by gold medals"
+                        ></button>
                     </th>
-                    <th>
-                        <button onClick={() => handleSort(SortType.SILVER)} className={`${styles['medal-button']} ${styles['silver-button']}`}></button>
+                    <th scope="col">
+                        <button 
+                            onClick={() => handleSort(SortType.SILVER)} 
+                            className={`${styles['medal-button']} ${styles['silver-button']}`}
+                            aria-label="Sort by silver medals"
+                        ></button>
                     </th>
-                    <th>
-                        <button onClick={() => handleSort(SortType.BRONZE)} className={`${styles['medal-button']} ${styles['bronze-button']}`}></button>
+                    <th scope="col">
+                        <button 
+                            onClick={() => handleSort(SortType.BRONZE)} 
+                            className={`${styles['medal-button']} ${styles['bronze-button']}`}
+                            aria-label="Sort by bronze medals"
+                        ></button>
                     </th>
-                    <th>
-                        <button onClick={() => handleSort(SortType.TOTAL)} className={` ${styles['medal-button']} ${styles['total-button']}`}>Total</button>
+                    <th scope="col">
+                        <button 
+                            onClick={() => handleSort(SortType.TOTAL)} 
+                            className={` ${styles['medal-button']} ${styles['total-button']}`}
+                            aria-label="Sort by total medals"
+                        >Total</button>
                     </th>
                 </tr>
             </thead>
@@ -113,7 +129,10 @@ const MedalTable = () => {
                                     width: imageDimensions.width,
                                     height: (imageDimensions.height / medalData.length),
                                     backgroundPosition: getFlagPositon(data.flagIndex ? data.flagIndex : 0),
-                                }}></div>
+                                }}
+                                role="img"
+                                aria-label={`Flag of ${data.code}`}
+                            ></div>
                             <span>{data.code}</span>
                         </td>
                         <td> <span>{data.gold}</span></td>
